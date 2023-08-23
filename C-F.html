@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celsius to Fahrenheit Converter</title>
+  <style>
+    *{
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #040D12;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      gap: 20px;
+    }
+    .container{
+      background-color: #183D3D;
+      width: 400px;
+      height: 500px;
+      color: white;
+      padding: 50px 5px 5px 5px;
+      border-radius: 20px;
+      position: relative;
+    }
+    #input{
+      width: 250px;
+      height: 45px;
+      outline: none;
+      font-size: 20px;
+      text-align: center;
+      
+    }
+    button{
+      width: 140px;
+      height:45px;
+      font-size: 20px;
+      transition: all .5s;
+      background-color:#76af99;
+      border-radius: 10px;
+    }
+    button:hover{
+      scale: 1.1;
+    }
+    .box{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      justify-content: center;
+      align-items: center;
+    }
+    #output{
+      font-size: 25px;
+      font-weight:700;
+    }
+    img{
+      width:40px;
+    }
+    .img{
+      width: 100%;
+      position:absolute;
+      display: flex;
+      bottom:0;
+      left: 0;
+      height: 20%;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
+    .likeimage,.dislikeimage{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    #like,#dislike{
+      font-size: 25px;
+      margin-left: -10px; 
+    }
+    input:invalid{
+      animation: shake .3s linear;
+      border: 2px solid red;
+    }
+    #share{
+      background-color: rgb(221, 233, 0);
+      animation: share 1s linear infinite;
+      display: none;
+      
+    }
+    @keyframes share {
+      0%{
+        transform: scale(1);
+      }
+      50%{
+        transform:scale(1.1);
+      }
+    }
+    a{
+      color:black;
+    text-decoration: none;
+      }
+    @keyframes shake{
+      0%{
+        transform: translateX(5px);
+      }
+      50%{
+        transform: translateX(-5px);
+      }
+      100%{
+        transform: translateX(5px);
+      }
+    }
+    @media screen and (max-width:768px){
+      .container{
+        margin: 10px;
+      }
+      #share{
+        display: block;
+      }
+      
+    }
+
+  </style> 
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h2>Celsius to Fahrenheit</h2>
+    <input autocomplete="off" pattern="[0-9]*" type="tel" id="input" placeholder="Enter Celsius...(i-e) 100">
+    <button type="submit" onclick="calculate()">Convert</button>
+    <div id="output"></div>
+    </div>
+    <div class="img">
+      <div class="likeimage">
+        <img src="like.png" alt="" onclick="
+        like+=1;
+        document.getElementById('like').innerHTML=like;">
+        <div id="like"></div>
+      </div>
+      <div class="dislikeimage">
+        <img class="dislike" src="dislike.png" onclick="
+      dislike+=1;
+      document.getElementById('dislike').innerHTML=dislike;" alt="">
+      <div id="dislike"></div>
+      </div>
+    </div>
+    
+  </div>
+  <button id="share"><a href="https://api.whatsapp.com/send?text=${whatsappMessage}">Share</a></button>
+  <script>
+    function calculate(){
+      let input =document.getElementById("input").value;
+      const result = (Number(input)*9/5)+32;
+      if(input.length==0){
+        const result= document.getElementById("output").innerHTML="";
+      }else{
+        const output = document.getElementById("output").innerHTML=result+"  °F";
+      }
+    }
+
+    // function review(){
+      // const like = document.getElementById("like");
+      // const dislike=document.getElementById("dislike");
+      let like =0;
+      let dislike=0;
+    
+  </script>
+</body>
+</html>
